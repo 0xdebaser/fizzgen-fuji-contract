@@ -6,7 +6,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "hardhat/console.sol";
 
 contract FizzgenFuji is ERC721URIStorage, Ownable {
    using Counters for Counters.Counter;
@@ -25,8 +24,6 @@ contract FizzgenFuji is ERC721URIStorage, Ownable {
        uint256 newItemId = _tokenIds.current();
        _mint(recipient, newItemId);
        _setTokenURI(newItemId, tokenURI);
-
-       console.log("New NFT with ID of %s has been minted to %s!", newItemId, recipient);
 
        emit NewNFTMinted(recipient, newItemId);
    }
